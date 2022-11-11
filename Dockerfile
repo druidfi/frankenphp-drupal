@@ -16,7 +16,7 @@ COPY --from=composer/composer:2-bin /composer /usr/local/bin/
 ENV DRUPAL_VERSION 10.0.0-beta2
 
 WORKDIR /opt/drupal
-
+# Copy from the official image when Drupal 10.0 will be released
 RUN set -eux; \
 	export COMPOSER_HOME="$(mktemp -d)"; \
 	composer create-project --no-interaction "drupal/recommended-project:$DRUPAL_VERSION" ./; \
