@@ -38,7 +38,9 @@ services:
       - stonehenge-network
 
   postgres:
-    image: postgres
+    build:
+      context: .
+      dockerfile: db.Dockerfile
     environment:
       POSTGRES_PASSWORD: example
     restart: always
