@@ -5,7 +5,6 @@ RUN install-php-extensions \
     gd \
     opcache \
     pdo_mysql \
-    pdo_pgsql \
     zip
 
 COPY --from=drupal /usr/local/etc/php/conf.d/* /usr/local/etc/php/conf.d/

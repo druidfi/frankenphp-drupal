@@ -1,13 +1,13 @@
-# Drupal with PostgreSQL
+# Drupal with MariaDB
 #
 # Access via "https://localhost"
 #
 # During initial Drupal setup,
-# Database type: PostgreSQL
-# Database name: postgres
-# Database username: postgres
+# Database type: MySQL, MariaDB, Percona Server, or equivalent
+# Database name: drupal
+# Database username: drupal
 # Database password: example
-# ADVANCED OPTIONS; Database host: postgres
+# ADVANCED OPTIONS; Database host: db
 
 version: '3.1'
 
@@ -28,8 +28,11 @@ services:
       - /app/public/sites
     restart: always
 
-  postgres:
-    image: postgres
+  db:
+    image: mariadb
     environment:
-      POSTGRES_PASSWORD: example
+      MYSQL_ROOT_PASSWORD: example1
+      MYSQL_DATABASE: drupal
+      MYSQL_USER: drupal
+      MYSQL_PASSWORD: example
     restart: always
