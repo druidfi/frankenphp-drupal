@@ -23,27 +23,9 @@ services:
       # existing content of the image at the same location
       - /app/public/sites
     restart: always
-    labels:
-      traefik.enable: true
-      traefik.http.routers.frankenphp-drupal.entrypoints: https
-      traefik.http.routers.frankenphp-drupal.rule: Host(`frankenphp-drupal.docker.so`)
-      traefik.http.routers.frankenphp-drupal.tls: true
-      traefik.http.services.frankenphp-drupal.loadbalancer.server.port: 80
-      traefik.docker.network: stonehenge-network
-    environment:
-      SERVER_NAME: :80
-    networks:
-      - default
-      - stonehenge-network
 
   db:
     image: mariadb
     environment:
       MARIADB_ROOT_PASSWORD: example
     restart: always
-    networks:
-      - default
-
-networks:
-  stonehenge-network:
-    external: true
