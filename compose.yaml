@@ -14,6 +14,9 @@ services:
 
   drupal:
     build: .
+    ports:
+      - 80:80
+      - 443:443
     volumes:
       - /app/public/modules
       - /app/public/profiles
