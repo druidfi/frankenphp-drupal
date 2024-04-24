@@ -1,15 +1,14 @@
-# Drupal with PostgreSQL
+# Drupal with MariaDB
 #
 # Access via "https://localhost"
 #
-# During initial Drupal setup,
-# Database type: PostgreSQL
-# Database name: postgres
-# Database username: postgres
+# During initial Drupal setup, use the following database configuration:
+#
+# Database type: MySQL, MariaDB, Percona Server, or equivalent 
+# Database name: drupal
+# Database username: root
 # Database password: example
-# ADVANCED OPTIONS; Database host: postgres
-
-version: '3.1'
+# ADVANCED OPTIONS; Database host: db
 
 services:
 
@@ -37,12 +36,10 @@ services:
       - default
       - stonehenge-network
 
-  postgres:
-    build:
-      context: .
-      dockerfile: db.Dockerfile
+  db:
+    image: mariadb
     environment:
-      POSTGRES_PASSWORD: example
+      MARIADB_ROOT_PASSWORD: example
     restart: always
     networks:
       - default
