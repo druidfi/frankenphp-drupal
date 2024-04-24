@@ -1,6 +1,7 @@
 services:
 
   drupal:
+    ports: !reset []
     environment:
       SERVER_NAME: :80
     labels:
