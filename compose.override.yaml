@@ -3,6 +3,7 @@ services:
   drupal:
     ports: !reset []
     environment:
+      # This makes Traefik work
       SERVER_NAME: :80
     labels:
       traefik.enable: true
